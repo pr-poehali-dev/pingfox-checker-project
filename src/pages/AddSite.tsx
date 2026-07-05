@@ -63,7 +63,7 @@ const AddSite = () => {
       <header className="flex items-center justify-between gap-4 px-6 lg:px-10 py-5 border-b border-border sticky top-0 bg-background/80 backdrop-blur-md z-10">
         <div className="flex items-center gap-4">
           <Link
-            to="/"
+            to="/dashboard"
             className="w-9 h-9 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
           >
             <Icon name="ArrowLeft" size={18} />
