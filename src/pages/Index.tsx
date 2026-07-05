@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 
 const navItems = [
@@ -140,10 +141,10 @@ const Index = () => {
               <span className="w-2 h-2 rounded-full bg-success pulse-dot" />
               live
             </div>
-            <button className="flex items-center gap-2 bg-primary text-primary-foreground font-medium text-sm px-4 py-2.5 rounded-lg hover:opacity-90 transition-opacity glow-orange">
+            <Link to="/add" className="flex items-center gap-2 bg-primary text-primary-foreground font-medium text-sm px-4 py-2.5 rounded-lg hover:opacity-90 transition-opacity glow-orange">
               <Icon name="Plus" size={16} />
               Добавить сайт
-            </button>
+            </Link>
           </div>
         </header>
 
