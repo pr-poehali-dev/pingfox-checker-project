@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 
 const features = [
-  { icon: 'Globe2', title: 'HTTP/HTTPS мониторинг', desc: 'Проверяем доступность сайта из нескольких точек' },
-  { icon: 'Timer', title: 'Проверка от 1 минуты', desc: 'Узнаём о падении раньше клиентов' },
-  { icon: 'History', title: 'История инцидентов', desc: 'Полный лог падений с точным временем и кодом ответа' },
-  { icon: 'Send', title: 'Telegram и MAX', desc: 'Уведомления там, где вы уже общаетесь с командой' },
+  { icon: 'Globe2', emoji: '🌐', title: 'HTTP/HTTPS мониторинг', desc: 'Проверяем доступность сайта из нескольких точек' },
+  { icon: 'Timer', emoji: '⏱️', title: 'Проверка от 1 минуты', desc: 'Узнаём о падении раньше клиентов' },
+  { icon: 'History', emoji: '📜', title: 'История инцидентов', desc: 'Полный лог падений с точным временем и кодом ответа' },
+  { icon: 'Send', emoji: '✈️', title: 'Telegram и MAX', desc: 'Уведомления там, где вы уже общаетесь с командой' },
 ];
 
 const competitors = [
@@ -17,16 +17,16 @@ const competitors = [
 ];
 
 const plans = [
-  { name: 'Free', price: '0', period: '', features: ['1 сайт', 'Проверка раз в 5 мин', 'Email-уведомления', 'История 7 дней'], cta: 'Начать бесплатно', highlight: false },
-  { name: 'Start', price: '199', period: '/мес', features: ['5 сайтов', 'Проверка раз в 1 мин', 'Telegram + Email', 'История 30 дней'], cta: 'Выбрать Start', highlight: false },
-  { name: 'Pro', price: '399', period: '/мес', features: ['20 сайтов', 'Проверка раз в 1 мин', 'Telegram, MAX, Email', 'История 90 дней', 'SSL-мониторинг'], cta: 'Выбрать Pro', highlight: true },
-  { name: 'Agency', price: '999', period: '/мес', features: ['Безлимит сайтов', 'Все каналы уведомлений', 'White-label отчёты', 'Приоритетная поддержка'], cta: 'Выбрать Agency', highlight: false },
+  { name: 'Free', emoji: '🆓', price: '0', period: '', features: ['1 сайт', 'Проверка раз в 5 мин', 'Email-уведомления', 'История 7 дней'], cta: 'Начать бесплатно', highlight: false },
+  { name: 'Start', emoji: '🚀', price: '199', period: '/мес', features: ['5 сайтов', 'Проверка раз в 1 мин', 'Telegram + Email', 'История 30 дней'], cta: 'Выбрать Start', highlight: false },
+  { name: 'Pro', emoji: '⭐', price: '399', period: '/мес', features: ['20 сайтов', 'Проверка раз в 1 мин', 'Telegram, MAX, Email', 'История 90 дней', 'SSL-мониторинг'], cta: 'Выбрать Pro', highlight: true },
+  { name: 'Agency', emoji: '🏢', price: '999', period: '/мес', features: ['Безлимит сайтов', 'Все каналы уведомлений', 'White-label отчёты', 'Приоритетная поддержка'], cta: 'Выбрать Agency', highlight: false },
 ];
 
 const steps = [
-  { n: '01', title: 'Добавьте сайт', desc: 'Введите домен — проверка стартует сразу' },
-  { n: '02', title: 'Настройте уведомления', desc: 'Telegram, MAX, Email — выбирайте что удобно' },
-  { n: '03', title: 'Спите спокойно', desc: 'Мы сообщим первыми, если что-то упадёт' },
+  { n: '01', emoji: '🦊', title: 'Добавьте сайт', desc: 'Введите домен — проверка стартует сразу' },
+  { n: '02', emoji: '🔔', title: 'Настройте уведомления', desc: 'Telegram, MAX, Email — выбирайте что удобно' },
+  { n: '03', emoji: '😴', title: 'Спите спокойно', desc: 'Мы сообщим первыми, если что-то упадёт' },
 ];
 
 const Landing = () => {
@@ -69,8 +69,8 @@ const Landing = () => {
             Сделано для рунета
           </div>
           <h1 className="rise text-4xl sm:text-6xl font-bold tracking-tight leading-[1.05]" style={{ animationDelay: '80ms' }}>
-            Ваш сайт упал?<br />
-            <span className="text-primary">Мы узнаем первыми.</span>
+            Ваш сайт упал? 😱<br />
+            <span className="text-primary">Мы узнаем первыми.</span> 🦊
           </h1>
           <p className="rise text-lg text-muted-foreground mt-6 max-w-xl mx-auto" style={{ animationDelay: '160ms' }}>
             Мониторинг доступности сайтов с уведомлениями в Telegram и MAX.
@@ -148,7 +148,9 @@ const Landing = () => {
               <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-5">
                 <Icon name={f.icon} size={20} />
               </div>
-              <h3 className="font-semibold tracking-tight mb-1.5">{f.title}</h3>
+              <h3 className="font-semibold tracking-tight mb-1.5 flex items-center gap-1.5">
+                {f.title} <span>{f.emoji}</span>
+              </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
             </div>
           ))}
@@ -166,6 +168,7 @@ const Landing = () => {
           <div className="relative grid sm:grid-cols-3 gap-8">
             {steps.map((s, i) => (
               <div key={s.n} className="rise text-center" style={{ animationDelay: `${i * 100}ms` }}>
+                <div className="text-3xl mb-2">{s.emoji}</div>
                 <div className="font-mono text-4xl font-bold text-primary/30 mb-3">{s.n}</div>
                 <h3 className="font-semibold tracking-tight mb-1.5">{s.title}</h3>
                 <p className="text-sm text-muted-foreground">{s.desc}</p>
@@ -218,7 +221,9 @@ const Landing = () => {
                   популярный
                 </span>
               )}
-              <h3 className="font-semibold tracking-tight text-lg">{p.name}</h3>
+              <h3 className="font-semibold tracking-tight text-lg flex items-center gap-1.5">
+                {p.name} <span>{p.emoji}</span>
+              </h3>
               <div className="flex items-baseline gap-1 mt-3 mb-6">
                 <span className="text-3xl font-bold font-mono">{p.price}</span>
                 <span className="text-muted-foreground font-mono text-sm">₽{p.period}</span>
@@ -252,7 +257,7 @@ const Landing = () => {
         <div className="rounded-2xl border border-primary/40 bg-primary/5 p-10 lg:p-14 text-center glow-orange relative overflow-hidden grid-lines">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background/60" />
           <div className="relative">
-            <h2 className="text-3xl font-bold tracking-tight">Не ждите жалоб клиентов</h2>
+            <h2 className="text-3xl font-bold tracking-tight">Не ждите жалоб клиентов 📉</h2>
             <p className="text-muted-foreground mt-3 max-w-md mx-auto">
               Подключите первый сайт бесплатно и узнавайте о падениях раньше всех
             </p>
