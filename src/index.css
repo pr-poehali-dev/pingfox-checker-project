@@ -4,33 +4,36 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 24% 6%;
+    --foreground: 210 20% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 22% 9%;
+    --card-foreground: 210 20% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 22% 9%;
+    --popover-foreground: 210 20% 92%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 22 92% 55%;
+    --primary-foreground: 220 24% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 18% 14%;
+    --secondary-foreground: 210 20% 92%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 18% 14%;
+    --muted-foreground: 215 12% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 22 92% 55%;
+    --accent-foreground: 220 24% 6%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 152 60% 48%;
+    --warning: 40 92% 55%;
+
+    --border: 220 16% 16%;
+    --input: 220 16% 16%;
+    --ring: 22 92% 55%;
 
     --radius: 0.5rem;
 
@@ -97,5 +100,77 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    background-image:
+      radial-gradient(
+        600px circle at 15% 0%,
+        hsl(22 92% 55% / 0.06),
+        transparent 45%
+      ),
+      radial-gradient(
+        700px circle at 100% 20%,
+        hsl(200 80% 50% / 0.05),
+        transparent 50%
+      );
+    background-attachment: fixed;
   }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: "IBM Plex Mono", monospace;
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(hsl(220 16% 16% / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(220 16% 16% / 0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .glow-orange {
+    box-shadow:
+      0 0 0 1px hsl(22 92% 55% / 0.3),
+      0 8px 30px -6px hsl(22 92% 55% / 0.25);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.draw-line {
+  stroke-dasharray: 1000;
+  animation: draw 1.6s ease-out forwards;
 }
